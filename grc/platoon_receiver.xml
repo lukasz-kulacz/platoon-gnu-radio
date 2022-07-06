@@ -4,19 +4,25 @@
   <key>platoon_receiver</key>
   <category>[platoon]</category>
   <import>import platoon</import>
-  <make>platoon.receiver()</make>
+  <make>platoon.receiver($url, $platoon_id)</make>
   <!-- Make one 'param' node for every Parameter you want settable from the GUI.
        Sub-nodes:
        * name
        * key (makes the value accessible as $keyname, e.g. in the make node)
        * type -->
-  <!--
-  <param>
-    <name>...</name>
-    <key>...</key>
-    <type>...</type>
+<param>
+    <name>DSA url</name>
+    <key>url</key>
+    <value>http://150.254.223.49:8000/slave</value> 
+    <type>string</type>
   </param>
-  -->
+  
+  <param>
+    <name>Platoon ID</name>
+    <key>platoon_id</key>
+    <value>1</value>
+    <type>int</type>
+  </param>
 
   <!-- Make one 'sink' node per input. Sub-nodes:
        * name (an identifier for the GUI)

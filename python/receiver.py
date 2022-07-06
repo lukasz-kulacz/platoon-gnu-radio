@@ -26,9 +26,19 @@ class receiver(gr.basic_block):
     """
     docstring for block receiver
     """
-    def __init__(self):
+    def __init__(self, url, platoon_id):
         gr.basic_block.__init__(self,
             name="receiver",
             in_sig=[],
             out_sig=[])
+    
+        self.url = url
+        self.platoon_id = platoon_id
+
+    def communicate(self):
+        url = self.url + '/' + str(self.platoon_id) 
+        x = requests.get(url)
+        print(x.json())
+        return x.json()['freq']
+    
 
